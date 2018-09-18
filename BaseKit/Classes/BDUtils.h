@@ -41,23 +41,23 @@
 /**
  *  加载本地Html页面，文件在打包在App内部
  *
- *  @param fileName
- *  @param webView
+ *  @param fileName 文件名
+ *  @param webView  目标 WebView
  */
 + (void)loadHtml:(NSString *)fileName webView:(UIWebView *)webView;
 
 /**
  *  加载本地html页面，图片资源使用本地App内部资源
  *
- *  @param filePath
- *  @param webView
+ *  @param filePath 文件路径
+ *  @param webView  目标 WebView
  */
 + (void)loadHtmlWithFilePath:(NSString *)filePath webView:(UIWebView *)webView;
 
 /**
  *  加载bundle Json文件
  *
- *  @param fileName
+ *  @param fileName 文件名
  */
 + (NSDictionary *)loadJsonFileFromBundel:(NSString *)fileName;
 

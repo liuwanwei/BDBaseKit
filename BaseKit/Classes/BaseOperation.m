@@ -6,7 +6,9 @@
 //
 
 #import "BaseOperation.h"
-#import "category/NSDictionary+QueryStringBuilder.h"
+#import "ASIFormDataRequest.h"
+#import "ASINetworkQueue.h"
+#import "NSDictionary+QueryStringBuilder.h"
 #import "JDJsonDecoder.h"
 #import "DomainManager.h"
 

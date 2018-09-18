@@ -24,10 +24,20 @@ static MBProgressManager *sMBProgressManager;
 }
 
 #pragma 类成员函数
+
+/**
+ * 为适应 MBProgressHUD 新版本的变化，将原先的 initWithWindow 初始化接口改为 initWithView，
+ * 修改时，需要一个 UIView 参数，所以写一个公用函数，返回当前 keyWindow 的 UIView 对象
+ *
+ */
+- (UIView *)keyWindowView{
+    return [UIApplication sharedApplication].keyWindow.rootViewController.view;
+}
+
 - (void)showHUD:(NSString *)msg {
     [self showIndicator];
     if (nil == _HUD) {
-         _HUD = [[MBProgressHUD alloc] initWithWindow:[UIApplication sharedApplication].keyWindow];
+         _HUD = [[MBProgressHUD alloc] initWithView:[self keyWindowView]];
         _HUD.removeFromSuperViewOnHide = NO;
     }else {
         [_HUD removeFromSuperview];
@@ -35,13 +45,13 @@ static MBProgressManager *sMBProgressManager;
     
     [[UIApplication sharedApplication].keyWindow addSubview:_HUD];
     
-    _HUD.labelText = msg;
-    [_HUD show:YES];
+    _HUD.label.text = msg;
+    [_HUD showAnimated:YES];
 }
 
 - (void)removeHUD {
     [self hideIndicator];
-    [_HUD hide:YES];
+    [_HUD hideAnimated:YES];
     [_HUD removeFromSuperViewOnHide];
     _HUD = nil;
 }
@@ -49,13 +59,13 @@ static MBProgressManager *sMBProgressManager;
 - (void)showHUD:(NSString *)msg withView:(UIView *)view {
     [self showIndicator];
     if (nil == _HUD) {
-        _HUD = [[MBProgressHUD alloc] initWithWindow:[UIApplication sharedApplication].keyWindow];
+        _HUD = [[MBProgressHUD alloc] initWithView:view];
     }else {
         [_HUD removeFromSuperview];
     }
     [view addSubview:_HUD];
-    _HUD.labelText = msg;
-    [_HUD show:YES];
+    _HUD.label.text = msg;
+    [_HUD showAnimated:YES];
 }
 
 + (void)showHUD:(NSString *)msg inView:(UIView *)view{
@@ -82,10 +92,10 @@ static MBProgressManager *sMBProgressManager;
 + (void)toast:(NSString *)toast delay:(NSTimeInterval)delay inView:(UIView *)view{
     MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeText;
-    hud.labelText = toast;
+    hud.label.text = toast;
     hud.margin = 10.f;
     hud.removeFromSuperViewOnHide = YES;
-    [hud hide:YES afterDelay:delay];
+    [hud hideAnimated:YES afterDelay:delay];
 }
 
 // 简单封装：展示1.5秒后自动消失的toast
@@ -107,15 +117,15 @@ static MBProgressManager *sMBProgressManager;
     [self hideIndicator];
     _HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark"]];
     _HUD.mode = MBProgressHUDModeCustomView;
-    _HUD.labelText = message;
+    _HUD.label.text = message;
     [_HUD removeFromSuperViewOnHide];
-    [_HUD hide:YES afterDelay:1];
+    [_HUD hideAnimated:YES afterDelay:1];
     _HUD = nil;
 }
 
 - (void)showSuccessMessage:(NSString *)message {
     if (nil == _HUD) {
-        _HUD = [[MBProgressHUD alloc] initWithWindow:[UIApplication sharedApplication].keyWindow];
+        _HUD = [[MBProgressHUD alloc] initWithView:[self keyWindowView]];
     }else {
         [_HUD removeFromSuperview];
     }
@@ -124,10 +134,10 @@ static MBProgressManager *sMBProgressManager;
     
     _HUD.mode = MBProgressHUDModeCustomView;
     _HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark"]];
-    _HUD.labelText = message;
+    _HUD.label.text = message;
     [_HUD removeFromSuperViewOnHide];
-    [_HUD show:YES];
-    [_HUD hide:YES afterDelay:1];
+    [_HUD showAnimated:YES];
+    [_HUD hideAnimated:YES afterDelay:1];
 }
 
 @end

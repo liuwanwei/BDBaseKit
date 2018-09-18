@@ -7,6 +7,7 @@
 //
 
 #import "BDViewController.h"
+#import "MBProgressManager.h"
 
 @interface BDViewController ()
 
@@ -18,6 +19,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear: animated];
+    
+    [[MBProgressManager defaultManager] showHUD:@"test"];
 }
 
 - (void)didReceiveMemoryWarning

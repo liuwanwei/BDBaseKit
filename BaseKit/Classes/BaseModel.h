@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AutoCoding.h>
 
 #define kId                 @"id"
 #define kName               @"name"

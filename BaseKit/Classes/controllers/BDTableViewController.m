@@ -50,8 +50,8 @@
 - (void)stopHUDWithSuccessMessage:(NSString *)message{
     self.HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark"]];
     self.HUD.mode = MBProgressHUDModeCustomView;
-    self.HUD.labelText = message;
-    [self.HUD hide:YES afterDelay:1];
+    self.HUD.label.text = message;
+    [self.HUD hideAnimated:YES afterDelay:1];
 }
 
 - (void)stopHUDWithSuccessUploadMessage{
@@ -60,10 +60,10 @@
 
 - (void)stopHUDWithErrorMessage:(NSString *)message{
     self.HUD.mode = MBProgressHUDModeText;
-    self.HUD.labelText = message;
+    self.HUD.label.text = message;
     self.HUD.margin = 10.f;
     self.HUD.removeFromSuperViewOnHide = YES;
-    [self.HUD hide:YES afterDelay:1.5f];
+    [self.HUD hideAnimated:YES afterDelay:1.5f];
 
 }
 
@@ -72,7 +72,7 @@
 }
 
 - (void)stopHUD{
-    [self.HUD hide:YES];
+    [self.HUD hideAnimated:YES];
 }
 
 /*
