@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 继续工具类，合并到一起便于使用和管理。
                        DESC
 
-  s.homepage         = 'https://github.com/liuwanwei@gmail.com/BaseKit'
+  s.homepage         = 'https://github.com/liuwanwei/BaseKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'liuwanwei@gmail.com' => 'liuwanwei@gmail.com' }
-  s.source           = { :git => 'https://github.com/liuwanwei@gmail.com/BaseKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/liuwanwei/BaseKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
