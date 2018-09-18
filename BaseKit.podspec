@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'BaseKit'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of BaseKit.'
+  s.summary          = '一些基础库代码，只言片语'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+继续工具类，合并到一起便于使用和管理。
                        DESC
 
   s.homepage         = 'https://github.com/liuwanwei@gmail.com/BaseKit'
