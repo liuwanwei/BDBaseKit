@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BaseKit_Example' do
+  pod 'BaseKit', :path => '../'
+
+  target 'BaseKit_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
