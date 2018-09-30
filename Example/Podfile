@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BDBaseKit_Example' do
+  pod 'BDBaseKit', :path => '../'
+
+  target 'BDBaseKit_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
