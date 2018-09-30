@@ -1,11 +1,13 @@
 use_frameworks!
 
+platform :ios, '12.0'
+
 target 'BDBaseKit_Example' do
   pod 'BDBaseKit', :path => '../'
 
   target 'BDBaseKit_Tests' do
     inherit! :search_paths
 
-    pod 'FBSnapshotTestCase'
+    pod 'FBSnapshotTestCase/Core'
   end
 end
