@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 yuteng. All rights reserved.
 //
 
-#ifndef __MACRO_H__
-#define __MACRO_H__
+#ifndef __BD_MACRO_H__
+#define __BD_MACRO_H__
 
 /* 预定义宏*/
 
